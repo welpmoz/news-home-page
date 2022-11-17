@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | News homepage</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: hsl(36, 100%, 99%);
+      padding: 28px 8vw;
+    }
+    /* navbar */
+    .logo {
+      --width: 45px;
+    }
+    .menu-icon {
+      --width: 40px;
+    }
+    nav img {
+      width: var(--width);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    /* info content */
+    section * {
+      margin: 0;
+      padding: 0;
+    }
+    picture > img {
+      width: 100%;
+      margin-bottom: 27px;
+    }
+    section > h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 98%;
+      letter-spacing: 0.01em;
+      color: hsl(240, 100%, 5%);
+    }
+    section p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 175%;
+      letter-spacing: 0.003em;
+      color: hsl(236, 13%, 42%);
+    }
+    section button {
+      font-family: 'Inter', sans-serif;
+      width: 185px;
+      height: 48px;
+      padding: 16px 0;
+      background-color: hsl(5, 85%, 63%);
+      border-style: none;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: 0.28em;
+      color: hsl(36, 100%, 99%);
+      margin-top: 30px;
+      cursor: pointer;
+    }
+    section > div {
+      margin-top: 15px;
+    }
+    /* seccion de noticias */
+    .news {
+      background-color: hsl(240, 100%, 5%);
+      margin-top: 66px;
+      padding: 19px 22px;
+    }
+    .news * {
+      margin: 0;
+      padding: 0;
+    }
+    .news > h1 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: hsl(35, 77%, 62%);
+    }
+    .news > div {
+      margin: 36px 0;
+    }
+    .news > div:nth-of-type(2) {
+      padding: 36px 0;
+      border-top: 1px solid hsl(236, 13%, 42%);
+      border-bottom: 1px solid hsl(236, 13%, 42%);
+    }
+    .news h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 175%;
+      letter-spacing: 0.003em;
+      color: hsl(36, 100%, 99%);
+    }
+    .news p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 175%;
+      letter-spacing: 0.003em;
+      color: hsl(236, 13%, 42%);
+    }
+    /* options section */
+    .options * {
+      margin: 0;
+      padding: 0;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 64px;
+    }
+    .options img {
+      width: 102px;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+    }
+    .option h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: hsl(233, 8%, 79%);
+    }
+    .option h5 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.05em;
+      color: hsl(240, 100%, 5%);
+    }
+    .option p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 175%;
+      letter-spacing: 0.003em;
+      color: hsl(236, 13%, 42%);
+    }
+    .option > img {
+      margin-right: 22px;
+    }
+    /* menu hover effect */
+    .menu * {
+      margin: 0;
+      padding: 0;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: hsla(240, 100%, 5%, 0.3);
+    }
+    .right-side > span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 23px;
+      letter-spacing: -0.03em;
+      color: hsl(240, 100%, 5%);
+      cursor: pointer;
+    }
+    .right-side {
+      background-color: hsl(36, 100%, 99%);
+      width: 60%;
+      height: 100%;
+      float: right;
+      padding-left: 24px;
+      padding-top: 27px;
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+    .right-side > img {
+      margin-bottom: 62px;
+      align-self: flex-end;
+    }
+    /*responsive desktop*/
+    @media (min-width: 1000px) {
+      body {
+        padding: 30px 4vw;
+      }
+      nav > span {
+        display: none;
+      }
+      .menu {
+        position: relative;
+        background-color: hsl(36, 100%, 99%);
+      }
+      .right-side {
+        width: auto;
+        float: unset;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+      .right-side > img {
+        display: none;
+      }
+      .right-side > span {
+        display: inline;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 165%;
+        letter-spacing: 0.003em;
+        color: hsl(236, 13%, 42%);
+      }
+      article {
+        display: flex;
+        gap: 30px;
+        justify-content: flex-end;
+      }
+      div.news {
+        flex: 1;
+        margin: 0;
+      }
+      section {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+      }
+      section h1 {
+        font-weight: 800;
+        font-size: 55px;
+        line-height: 98%;
+        letter-spacing: 0.02em;
+      }
+      .option {
+        flex: 1;
+      }
+      .options {
+        flex-direction: row;
+      }
+      .info {
+        display: flex;
+        align-items: flex-end;
+        gap: 32px;
+      }
+      .info > * {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <!-- logo de la pagina web -->
+      <a href="#"><img class="logo" src="./assets/images/logo.svg" alt="logo"></a>
+      <!-- logo del hangerburger -->
+      <span onclick="openNav()"><img class="menu-icon" src="./assets/images/icon-menu.svg" alt="menu"></span>
+      <div class="menu" id="nav">
+        <div class="right-side">
+          <img src="./assets/images/icon-menu-close.svg" alt="close-menu" onclick="closeNav()">
+          <span>Home</span>
+          <span>New</span>
+          <span>Popular</span>
+          <span>Trending</span>
+          <span>Categories</span>
+        </div>
+      </div>
+    </nav>
+    <article>
+      <section>
+        <picture>
+          <source media="(min-width: 600px)" srcset="./assets/images/image-web-3-desktop.jpg">
+          <img src="./assets/images/image-web-3-mobile.jpg" alt="mobile-image">
+        </picture>
+        <div class="info">
+            <h1>The Bright Future of Web 3.0?</h1>
+            <div>
+              <p>
+                We dive into the next evolution of the web that claims to put
+                the power of the platforms back into the hands of the people.
+                But is it really fulfilling its promise?
+              </p>
+              <button>READ MORE</button>
+            </div>
+        </div>
+      </section>
+      <div class="news">
+        <h1>New</h1>
+        <div>
+          <h4>Hydrogen VS Electric Cars</h4>
+          <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </div>
+        <div>
+          <h4>The Downsides of AI Artistry</h4>
+          <p>What are the possible adverse effects of on-demand
+            AI image generation?
+          </p>
+        </div>
+        <div>
+          <h4>Is VC Funding Drying Up?</h4>
+          <p>Private funding by VC firms is down 50%
+            YOY. We take a look at what that means.
+          </p>
+        </div>
+      </div>
+    </article>
+    <div class="options">
+      <div class="option">
+        <img src="./assets/images/image-retro-pcs.jpg" alt="retoPcs">
+        <div>
+          <h4>01</h4>
+          <h5>Reviving Retro PCs</h5>
+          <p>What happens when old PCs are given modern upgrades?</p>
+        </div>
+      </div>
+      <div class="option">
+        <img src="./assets/images/image-top-laptops.jpg" alt="retoPcs">
+        <div>
+          <h4>02</h4>
+          <h5>Top 10 Laptos of 2022</h5>
+          <p>Our best pick for various needs and budgets.</p>
+        </div>
+      </div>
+      <div class="option">
+        <img src="./assets/images/image-gaming-growth.jpg" alt="retoPcs">
+        <div>
+          <h4>03</h4>
+          <h5>The Growth of Gaming</h5>
+          <p>How the pandemic has sparked fresh opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- script section -->
+  <script>
+    function openNav() {
+      console.log('Abrir nav')
+      document.getElementById("nav").style.display = "block"
+    }
+
+    function closeNav() {
+      document.getElementById("nav").style.display = "none"
+    }
+  </script>
+</body>
+</html>
